@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace Athlos.Application
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
