@@ -1,10 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Athlos</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Domain\" />
   </ItemGroup>
 
 </Project>

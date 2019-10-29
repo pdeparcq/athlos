@@ -1,6 +1,6 @@
 using System;
 
-namespace Athlos.Web
+namespace Athlos.Application
 {
     public class WeatherForecast
     {
