@@ -1,12 +1,18 @@
+using Athlos.Domain.Commands;
+using Kledex.Bus.ServiceBus.Extensions;
+using Kledex.Extensions;
+using Kledex.Store.EF.Extensions;
+using Kledex.Store.EF.SqlServer;
+using Kledex.UI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
 
-namespace Athlos.Application
+namespace Athlos
 {
     public class Startup
     {
@@ -20,14 +26,20 @@ namespace Athlos.Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddRazorPages();
 
+            services
+                .AddKledex(typeof(CreateTrainingPlan))
+                .AddSqlServerProvider(Configuration)
+                .AddServiceBusProvider(Configuration)
+                .AddUI();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo() { Title = "Athos API", Version = "v1" });
             });
-
-            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +67,8 @@ namespace Athlos.Application
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Athos API V1");
             });
+
+            app.UseKledex().EnsureDomainDbCreated();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Athlos.Application
+﻿namespace Athlos.Application.ViewModels
 {
     public class Training
     {

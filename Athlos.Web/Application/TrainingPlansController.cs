@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Athlos.Application.InputModels;
+using Athlos.Domain.Commands;
+using Kledex;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -8,20 +12,23 @@ namespace Athlos.Application
     [Route("api/[controller]")]
     public class TrainingPlansController : ControllerBase
     {
-        private readonly ILogger<TrainingPlansController> _logger;
+        private readonly ILogger<TrainingPlansController> _logger; 
+        private readonly IDispatcher _dispatcher;
 
-        public TrainingPlansController(ILogger<TrainingPlansController> logger)
+        public TrainingPlansController(ILogger<TrainingPlansController> logger, IDispatcher dispatcher)
         {
             _logger = logger;
+            _dispatcher = dispatcher;
         }
 
-        [HttpGet]
-        [Route("{id}")]
-        public TrainingPlan Get(Guid id)
+        [HttpPost]
+        public async Task Create([FromBody] CreateTrainingPlanModel model)
         {
-            _logger.LogInformation($"Getting training plan with id {id} ...");
-
-            return new TrainingPlan();
+            await _dispatcher.SendAsync<CreateTrainingPlan, Domain.TrainingPlan>(new CreateTrainingPlan
+            {
+                AggregateRootId = Guid.NewGuid(),
+                Name = model.Name
+            });
         }
     }
 }
