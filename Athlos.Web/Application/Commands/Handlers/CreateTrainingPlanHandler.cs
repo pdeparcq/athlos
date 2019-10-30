@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Kledex.Domain;
 
-namespace Athlos.Domain.Commands.Handlers
+namespace Athlos.Application.Commands.Handlers
 {
     public class CreateTrainingPlanHandler : IDomainCommandHandlerAsync<CreateTrainingPlan>
     {

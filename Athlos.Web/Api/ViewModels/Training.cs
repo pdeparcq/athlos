@@ -1,4 +1,4 @@
-﻿namespace Athlos.Application.ViewModels
+﻿namespace Athlos.Api.ViewModels
 {
     public class Training
     {

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Athlos.Application.InputModels;
-using Athlos.Domain.Commands;
+using Athlos.Api.InputModels;
+using Athlos.Application.Commands;
 using Kledex;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Athlos.Application
+namespace Athlos.Api
 {
     [ApiController]
     [Route("api/[controller]")]

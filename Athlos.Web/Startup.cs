@@ -1,4 +1,4 @@
-using Athlos.Domain.Commands;
+using Athlos.Application.Commands;
 using Kledex.Bus.ServiceBus.Extensions;
 using Kledex.Extensions;
 using Kledex.Store.EF.Extensions;

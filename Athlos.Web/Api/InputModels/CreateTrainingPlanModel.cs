@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Athlos.Application.InputModels
+namespace Athlos.Api.InputModels
 {
     public class CreateTrainingPlanModel
     {
