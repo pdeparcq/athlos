@@ -26,13 +26,10 @@ namespace Athlos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
-
             services
                 .AddKledex(typeof(CreateTrainingPlan))
                 .AddSqlServerProvider(Configuration)
-                .AddServiceBusProvider(Configuration)
-                .AddUI();
+                .AddServiceBusProvider(Configuration);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             
