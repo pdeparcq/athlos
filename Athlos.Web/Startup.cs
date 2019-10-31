@@ -1,4 +1,5 @@
 using Athlos.Application.Commands;
+using Athlos.Application.Data;
 using Kledex.Bus.ServiceBus.Extensions;
 using Kledex.Extensions;
 using Kledex.Store.EF.Extensions;
@@ -7,6 +8,7 @@ using Kledex.UI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +33,8 @@ namespace Athlos
                 .AddSqlServerProvider(Configuration)
                 .AddServiceBusProvider(Configuration);
 
+            services.AddDbContext<AthlosDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ReadModel")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             
             services.AddSwaggerGen(c =>
@@ -40,7 +44,7 @@ namespace Athlos
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AthlosDbContext dbContext)
         {
             if (env.IsDevelopment())
             {
@@ -66,6 +70,8 @@ namespace Athlos
             });
 
             app.UseKledex().EnsureDomainDbCreated();
+
+            dbContext.Database.EnsureCreated();
         }
     }
 }

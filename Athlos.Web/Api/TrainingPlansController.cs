@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Athlos.Api.InputModels;
+using Athlos.Api.ViewModels;
 using Athlos.Application.Commands;
+using Athlos.Application.Queries;
 using Kledex;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -19,6 +23,19 @@ namespace Athlos.Api
         {
             _logger = logger;
             _dispatcher = dispatcher;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<TrainingPlanModel>> GetAllForAthlete()
+        {
+            return (await _dispatcher.GetResultAsync(new GetTrainingPlansForAthlete
+            {
+                AthleteId = Guid.Empty //TODO: provide athlete id from context
+            })).Select(p => new TrainingPlanModel
+            {
+                Id = p.Id,
+                Name = p.Name
+            });
         }
 
         [HttpPost]
