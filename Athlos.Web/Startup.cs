@@ -4,7 +4,6 @@ using Kledex.Bus.ServiceBus.Extensions;
 using Kledex.Extensions;
 using Kledex.Store.EF.Extensions;
 using Kledex.Store.EF.SqlServer;
-using Kledex.UI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -39,7 +38,7 @@ namespace Athlos
             
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo() { Title = "Athos API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo() { Title = "Athlos API", Version = "v1" });
             });
         }
 
@@ -66,7 +65,7 @@ namespace Athlos
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Athos API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Athlos API V1");
             });
 
             app.UseKledex().EnsureDomainDbCreated();

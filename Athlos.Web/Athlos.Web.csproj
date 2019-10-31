@@ -10,7 +10,6 @@
     <PackageReference Include="Kledex" Version="1.2.0" />
     <PackageReference Include="Kledex.Bus.ServiceBus" Version="1.2.0" />
     <PackageReference Include="Kledex.Store.EF.SqlServer" Version="1.2.0" />
-    <PackageReference Include="Kledex.UI" Version="1.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
   </ItemGroup>
 
