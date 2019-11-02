@@ -70,7 +70,7 @@ namespace Athlos
 
             app.UseKledex().EnsureDomainDbCreated();
 
-            dbContext.Database.EnsureCreated();
+            dbContext.Database.Migrate();
         }
     }
 }
