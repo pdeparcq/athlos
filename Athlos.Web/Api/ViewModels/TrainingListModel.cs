@@ -1,6 +1,6 @@
 ﻿namespace Athlos.Api.ViewModels
 {
-    public class TrainingModel
+    public class TrainingListModel
     {
         public int Day { get; set; }
         public string Activity { get; set; }

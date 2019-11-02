@@ -9,6 +9,9 @@ namespace Athlos.Api.ViewModels
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public int Weeks { get; set; }
-        public List<TrainingModel> Trainings { get; set; }
+        public List<RuleListModel> Rules { get; set; }
+        public DateTime GenerationDate { get; set; }
+        public List<TrainingListModel> Trainings { get; set; }
+        public int Score { get; set; }
     }
 }
