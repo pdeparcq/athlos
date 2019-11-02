@@ -1,8 +1,8 @@
 ﻿using System;
-using Athlos.Application.Data;
+using Athlos.Query.Data;
 using Kledex.Queries;
 
-namespace Athlos.Application.Queries
+namespace Athlos.Query
 {
     public class GetTrainingPlan : IQuery<TrainingPlanEntity>
     {

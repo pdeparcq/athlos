@@ -1,6 +1,6 @@
 ﻿using Kledex.Domain;
 
-namespace Athlos.Application.Commands
+namespace Athlos.Command
 {
     public class CreateTrainingPlan : DomainCommand
     {

@@ -14,7 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Athlos.Command\Athlos.Command.csproj" />
     <ProjectReference Include="..\Athlos.Domain\Athlos.Domain.csproj" />
+    <ProjectReference Include="..\Athlos.Query\Athlos.Query.csproj" />
   </ItemGroup>
 
 </Project>

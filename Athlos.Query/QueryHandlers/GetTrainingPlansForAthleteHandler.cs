@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Athlos.Application.Data;
+using Athlos.Query.Data;
 using Kledex.Queries;
 
-namespace Athlos.Application.Queries.Handlers
+namespace Athlos.Query.QueryHandlers
 {
     public class GetTrainingPlansForAthleteHandler : IQueryHandlerAsync<GetTrainingPlansForAthlete, IEnumerable<TrainingPlanEntity>>
     {

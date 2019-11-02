@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Athlos.Application.Data
+namespace Athlos.Query.Data
 {
     public class AthlosDbContext : DbContext
     {

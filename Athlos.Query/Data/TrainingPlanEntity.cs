@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Athlos.Application.Data
+namespace Athlos.Query.Data
 {
     public class TrainingPlanEntity
     {

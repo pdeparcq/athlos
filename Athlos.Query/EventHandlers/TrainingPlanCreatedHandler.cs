@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using Athlos.Application.Data;
 using Athlos.Domain.Events;
+using Athlos.Query.Data;
 using Kledex.Events;
 
-namespace Athlos.Application.EventHandlers
+namespace Athlos.Query.EventHandlers
 {
     public class TrainingPlanCreatedHandler : IEventHandlerAsync<TrainingPlanCreated>
     {

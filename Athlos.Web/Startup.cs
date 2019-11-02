@@ -1,5 +1,6 @@
-using Athlos.Application.Commands;
-using Athlos.Application.Data;
+using Athlos.Command;
+using Athlos.Query;
+using Athlos.Query.Data;
 using Kledex.Bus.ServiceBus.Extensions;
 using Kledex.Extensions;
 using Kledex.Store.EF.Extensions;
@@ -28,7 +29,7 @@ namespace Athlos
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddKledex(typeof(CreateTrainingPlan))
+                .AddKledex(typeof(CreateTrainingPlan), typeof(GetTrainingPlan))
                 .AddSqlServerProvider(Configuration)
                 .AddServiceBusProvider(Configuration);
 
