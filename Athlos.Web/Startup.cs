@@ -71,7 +71,8 @@ namespace Athlos.Api
 
             app.UseKledex().EnsureDomainDbCreated();
 
-            dbContext.Database.Migrate();
+            //dbContext.Database.EnsureDeleted();
+            dbContext.Database.EnsureCreated();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Kledex.Domain;
+﻿using System;
+using Kledex.Domain;
 
 namespace Athlos.Command
 {

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Athlos.Domain\Athlos.Domain.csproj" />
+    <ProjectReference Include="..\Athlos.Query\Athlos.Query.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,21 +5,22 @@ using Kledex.Events;
 
 namespace Athlos.Query.EventHandlers
 {
-    public class TrainingPlanCreatedHandler : IEventHandlerAsync<TrainingPlanCreated>
+    public class AthleteRegisteredHandler : IEventHandlerAsync<AthleteRegistered>
     {
         private readonly AthlosDbContext _db;
 
-        public TrainingPlanCreatedHandler(AthlosDbContext db)
+        public AthleteRegisteredHandler(AthlosDbContext db)
         {
             _db = db;
         }
 
-        public async Task HandleAsync(TrainingPlanCreated e)
+        public async Task HandleAsync(AthleteRegistered e)
         {
-            _db.TrainingPlans.Add(new TrainingPlanEntity
+            _db.Athletes.Add(new AthleteEntity
             {
                 Id = e.AggregateRootId,
-                Name = e.Name
+                StravaId = e.StravaId,
+                FullName = e.FullName
             });
 
             await _db.SaveChangesAsync();

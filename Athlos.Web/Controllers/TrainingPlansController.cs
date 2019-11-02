@@ -29,7 +29,7 @@ namespace Athlos.Api.Controllers
         {
             return (await _dispatcher.GetResultAsync(new GetTrainingPlansForAthlete
             {
-                AthleteId = Guid.Empty //TODO: provide athlete id from context
+                AthleteId = Guid.Parse("7a0ac2d6-56b8-4e9c-b616-6a2234560860") //TODO: provide athlete id from context
             })).Select(p => new TrainingPlanModel
             {
                 Id = p.Id,
@@ -42,7 +42,7 @@ namespace Athlos.Api.Controllers
         {
             await _dispatcher.SendAsync<CreateTrainingPlan, Domain.TrainingPlan>(new CreateTrainingPlan
             {
-                AggregateRootId = Guid.NewGuid(),
+                UserId = "7a0ac2d6-56b8-4e9c-b616-6a2234560860",
                 Name = model.Name
             });
         }

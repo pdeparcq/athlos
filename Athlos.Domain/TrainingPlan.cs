@@ -7,25 +7,29 @@ namespace Athlos.Domain
 {
     public class TrainingPlan : AggregateRoot
     {
-        public string Name { get; set; }
+        public Guid AthleteId { get; private set; }
+        public string Name { get; private set; }
 
         public TrainingPlan() { }
 
-        public TrainingPlan(Guid id, string name) : base(id)
+        public TrainingPlan(Guid athleteId, string name) : base(Guid.NewGuid())
         {
+            Guard.ArgumentCondition(() => athleteId, guid => guid != Guid.Empty);
             Guard.ArgumentNotNullOrEmpty(() => name);
 
             AddAndApplyEvent(new TrainingPlanCreated
             {
-                AggregateRootId = id,
+                AggregateRootId = Id,
+                AthleteId = athleteId,
                 Name = name
             });
         }
 
-        public void Apply(TrainingPlanCreated @event)
+        public void Apply(TrainingPlanCreated e)
         {
-            Id = @event.AggregateRootId;
-            Name = @event.Name;
+            Id = e.AggregateRootId;
+            AthleteId = e.AthleteId;
+            Name = e.Name;
         }
     }
 }
