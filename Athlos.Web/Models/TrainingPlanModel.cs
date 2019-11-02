@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Athlos.Api.ViewModels
+namespace Athlos.Api.Models
 {
     public class TrainingPlanModel
     {

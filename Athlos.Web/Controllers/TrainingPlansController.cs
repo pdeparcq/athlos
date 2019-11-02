@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Athlos.Api.InputModels;
-using Athlos.Api.ViewModels;
+using Athlos.Api.Models;
 using Athlos.Command;
 using Athlos.Query;
 using Kledex;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Athlos.Api
+namespace Athlos.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Athlos.Api.ViewModels
+namespace Athlos.Api.Models
 {
     public class RuleListModel
     {

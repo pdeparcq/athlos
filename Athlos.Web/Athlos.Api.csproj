@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <RootNamespace>Athlos</RootNamespace>
+    <RootNamespace>Athlos.Api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
